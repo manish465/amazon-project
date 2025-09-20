@@ -1,4 +1,4 @@
-package com.manish.discovery;
+package com.manish.user.discovery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

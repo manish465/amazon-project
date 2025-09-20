@@ -1,4 +1,4 @@
-package com.manish.user;
+package com.manish.user.repository;
 
 import com.manish.user.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;

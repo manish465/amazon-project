@@ -1,6 +1,6 @@
 package com.manish.user.service;
 
-import com.manish.user.UserRepository;
+import com.manish.user.repository.UserRepository;
 import com.manish.user.dto.SignUpResponseDTO;
 import com.manish.user.dto.SignUpUserRequestDTO;
 import com.manish.user.mapper.UserMapper;

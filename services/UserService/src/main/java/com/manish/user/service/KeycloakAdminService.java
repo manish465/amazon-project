@@ -16,18 +16,17 @@ import java.util.Map;
 @Service
 @Slf4j
 public class KeycloakAdminService {
-    @Value("${keycloak.auth-server-url}")
-    private String keycloakUrl;
-    @Value("${keycloak.realm}")
-    private String realm;
-    @Value("${keycloak.admin-username}")
-    private String adminUser;
-    @Value("${keycloak.admin-password}")
-    private String adminPassword;
-    @Value("${keycloak.client-id}")
-    private String clientId;
+    @Value("${keycloak.auth-server-url}") private String keycloakUrl;
+    @Value("${keycloak.realm}") private String realm;
+    @Value("${keycloak.admin-username}") private String adminUser;
+    @Value("${keycloak.admin-password}") private String adminPassword;
+    @Value("${keycloak.client-id}") private String clientId;
 
-    private final WebClient webClient = WebClient.builder().build();
+    private final WebClient webClient;
+
+    public KeycloakAdminService(WebClient.Builder webClientBuilder) {
+        this.webClient = webClientBuilder.build();
+    }
 
     public String createUser(String username, String email, String password){
         String accessToken = getAdminAccessToken();

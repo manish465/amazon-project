@@ -1,4 +1,4 @@
-package com.manish.user.config;
+package com.manish.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

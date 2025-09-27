@@ -22,6 +22,12 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: ${keycloak.auth-server-url}/realms/${keycloak.realm}
+          jwk-set-uri: ${keycloak.auth-server-url}/realms/${keycloak.realm}/protocol/openid_connect/certs
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
 
 eureka:
   client:

@@ -15,7 +15,6 @@ public class SignUpUserRequestDTO {
     private String userName;
     private String email;
     private String password;
-    private String authID;
     private String country;
     private String phoneNumber;
     private SignUpAddressRequestDTO address;

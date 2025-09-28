@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -16,13 +18,17 @@ public class UserService {
     private final KeycloakUserService keycloakAdminService;
     private final UserRepository userRepository;
 
-    public SignUpResponseDTO signUp(SignUpUserRequestDTO signUpUserRequestDTO) {
+    public SignUpResponseDTO signUp(
+            SignUpUserRequestDTO signUpUserRequestDTO,
+            String role
+    ) {
         String keycloakUserId = keycloakAdminService.createUser(
                 signUpUserRequestDTO.getUserName(),
                 signUpUserRequestDTO.getEmail(),
                 signUpUserRequestDTO.getFirstName(),
                 signUpUserRequestDTO.getLastName(),
-                signUpUserRequestDTO.getPassword()
+                signUpUserRequestDTO.getPassword(),
+                role
         );
 
         User user = UserMapper.toEntity(signUpUserRequestDTO);

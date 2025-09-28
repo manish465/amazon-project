@@ -29,6 +29,8 @@ public class SecurityConfig {
                 )
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/v1/user/create").permitAll()
+                        .requestMatchers("/api/v1/seller/create").permitAll()
+                        .requestMatchers("/api/v1/admin/create").permitAll()
                         .requestMatchers("/actuator/**").permitAll()
                         .anyRequest().authenticated()
                 )

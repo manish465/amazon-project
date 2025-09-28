@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/user")
 @RequiredArgsConstructor
 @Slf4j
-public class UserController {
+public class NormalUserController {
     private final UserService userService;
 
     @PostMapping("/create")
     public ResponseEntity<SignUpResponseDTO> signUp(
             @RequestBody SignUpUserRequestDTO signUpUserRequestDTO
     ) {
-        log.info("|| called signUp from UserController ||");
-        return new ResponseEntity<>(userService.signUp(signUpUserRequestDTO), HttpStatus.CREATED);
+        log.info("|| called signUp from NormalUserController ||");
+        return new ResponseEntity<>(userService.signUp(signUpUserRequestDTO, "user"), HttpStatus.CREATED);
     }
 }

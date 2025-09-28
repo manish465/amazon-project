@@ -23,11 +23,6 @@ spring:
           issuer-uri: ${keycloak.server-url}/realms/${keycloak.realm}
           jwk-set-uri: ${keycloak.server-url}/realms/${keycloak.realm}/protocol/openid_connect/certs
 
-logging:
-  level:
-    org.springframework.security: DEBUG
-    org.springframework.security.oauth2: DEBUG
-
 eureka:
   client:
     service-url:

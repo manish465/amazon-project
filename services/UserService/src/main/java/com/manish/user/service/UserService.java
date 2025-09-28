@@ -13,21 +13,23 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @RequiredArgsConstructor
 public class UserService {
-    private final KeycloakAdminService keycloakAdminService;
+    private final KeycloakUserService keycloakAdminService;
     private final UserRepository userRepository;
 
     public SignUpResponseDTO signUp(SignUpUserRequestDTO signUpUserRequestDTO) {
-        String authID = keycloakAdminService.createUser(
+        String keycloakUserId = keycloakAdminService.createUser(
                 signUpUserRequestDTO.getUserName(),
                 signUpUserRequestDTO.getEmail(),
+                signUpUserRequestDTO.getFirstName(),
+                signUpUserRequestDTO.getLastName(),
                 signUpUserRequestDTO.getPassword()
         );
 
         User user = UserMapper.toEntity(signUpUserRequestDTO);
-        user.setAuthID(authID);
+        user.setAuthID(keycloakUserId);
 
         String userID = userRepository.save(user).getId();
 
-        return new SignUpResponseDTO("User Created", userID, authID);
+        return new SignUpResponseDTO("User Created", userID, keycloakUserId);
     }
 }

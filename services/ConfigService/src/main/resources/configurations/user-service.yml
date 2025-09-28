@@ -2,11 +2,10 @@ server:
   port: 8001
 
 keycloak:
-  auth-server-url: http://localhost:8080
+  server-url: http://localhost:8080
   realm: amazon
-  admin-username: admin
-  admin-password: admin
   client-id: user-service-client
+  client-secret: SSLNN7GHNqZrPsidIualpVZ2XB635o09
 
 spring:
   data:
@@ -21,8 +20,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${keycloak.auth-server-url}/realms/${keycloak.realm}
-          jwk-set-uri: ${keycloak.auth-server-url}/realms/${keycloak.realm}/protocol/openid_connect/certs
+          issuer-uri: ${keycloak.server-url}/realms/${keycloak.realm}
+          jwk-set-uri: ${keycloak.server-url}/realms/${keycloak.realm}/protocol/openid_connect/certs
 
 logging:
   level:
